@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc 
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="com.bitwise.OnlineShoppingCart" />
+	
+	<mvc:annotation-driven />
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="login" class="com.bitwise.OnlineShoppingCart.model.Login"></bean>
+	<!-- <bean id="loginValidator" class="com.bitwise.OnlineShoppingCart.validator.LoginValidator"></bean> -->
+
+	<bean id="productList" class="com.bitwise.OnlineShoppingCart.model.ProductList">
+		<property name="productDetails">
+			<list>
+				<ref bean="product1" />
+				<ref bean="product2" />
+				<ref bean="product3" />
+				<ref bean="product4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="product1" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="BMW" />
+		<property name="price" value="200000" />
+		<property name="size" value="sedan" />
+		<property name="color" value="Black" />
+		<property name="stock" value="5" />
+	</bean>
+
+	<bean id="product2" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Audi" />
+		<property name="price" value="400000" />
+		<property name="size" value="suv" />
+		<property name="color" value="Blue" />
+		<property name="stock" value="5" />
+
+	</bean>
+
+	<bean id="product3" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Ferrari" />
+		<property name="price" value="600000" />
+		<property name="size" value="sedan" />
+		<property name="color" value="grey" />
+		<property name="stock" value="5" />
+
+	</bean>
+
+	<bean id="product4" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Bentley" />
+		<property name="price" value="800000" />
+		<property name="size" value="suv" />
+		<property name="color" value="white" />
+		<property name="stock" value="5" />
+
+	</bean>
+	<bean id="pd" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+	</bean>
+
+	<bean id="cart" class="com.bitwise.OnlineShoppingCart.model.Cart">
+
+	</bean>
+</beans>
